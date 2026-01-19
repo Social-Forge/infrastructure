@@ -1,0 +1,61 @@
+{
+  "v3_use_offset": true,
+  "token_hmac_secret_key": "${CENTRIFUGO_TOKEN_SECRET}",
+  "api_key": "${CENTRIFUGO_API_KEY}",
+  "admin_password": "${CENTRIFUGO_ADMIN_PASSWORD}",
+  "admin_secret": "${CENTRIFUGO_ADMIN_SECRET}",
+  "admin": true,
+  "admin_insecure": false,
+  "engine": "redis",
+  "redis": {
+    "address": "infrastructure-redis:6379",
+    "password": "${REDIS_PASSWORD}"
+  },
+  "allowed_origins": [
+    "http://localhost:5173",
+    "http://localhost:8080",
+    "http://localhost:3000",
+    "https://app.socialforge.com",
+    "https://socialforge.com",
+    "https://app.agcforge.com",
+    "https://agcforge.com"
+  ],
+  "namespaces": [
+    {
+      "name": "chat",
+      "publish": true,
+      "subscribe_to_publish": true,
+      "presence": true,
+      "join_leave": true,
+      "history_size": 100,
+      "history_ttl": "24h",
+      "recover": true
+    },
+    {
+      "name": "notifications",
+      "publish": true,
+      "subscribe_to_publish": true,
+      "history_size": 50,
+      "history_ttl": "12h"
+    },
+    {
+      "name": "presence",
+      "publish": true,
+      "presence": true,
+      "join_leave": true
+    },
+    {
+      "name": "typing",
+      "publish": true,
+      "history_size": 0,
+      "force_recovery": false
+    }
+  ],
+  "log_level": "info",
+  "log_file": "centrifugo.log",
+  "health": true,
+  "prometheus": true,
+  "grpc_api": {
+    "bind": "0.0.0.0:10000"
+  }
+}
