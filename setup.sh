@@ -102,6 +102,7 @@ MINIO_ACCESS_KEY=$MINIO_ACCESS
 MINIO_SECRET_KEY=$MINIO_SECRET
 MINIO_BROWSER_REDIRECT_URL=https://console-storage.infrastructures.help
 MINIO_SERVER_URL=https://api-storage.infrastructures.help
+MINIO_BUCKET=agc-forge
 
 # Centrifugo
 CENTRIFUGO_TOKEN_SECRET=$CENTRIFUGO_TOKEN
@@ -148,8 +149,8 @@ ${GREEN}PgAdmin:${NC}
   Port: 5050
 
 ${GREEN}Nginx:${NC}
-  HTTP Port: 80
-  HTTPS Port: 443
+  HTTP Port: 8080
+  HTTPS Port: 8443
 EOF
 
 print_warning "Please save these credentials in a secure location!"
