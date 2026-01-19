@@ -81,7 +81,7 @@ cat > .env << EOF
 COMPOSE_PROJECT_NAME=infrastructure
 
 # Nginx
-NGINX_HTTP_PORT=80
+NGINX_HTTP_PORT=8080
 NGINX_HTTPS_PORT=443
 
 # PostgreSQL
