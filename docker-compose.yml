@@ -49,7 +49,7 @@ services:
     image: centrifugo/centrifugo:v5
     container_name: infrastructure-centrifugo
     restart: always
-    command: centrifugo --config=/centrifugo/config.json
+    command: ["centrifugo", "--config=/centrifugo/config.json"]
     volumes:
       - ./docker/centrifugo/config.json:/centrifugo/config.json:ro
     ports:

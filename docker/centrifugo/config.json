@@ -6,8 +6,14 @@
   "admin": true,
   "admin_insecure": false,
   "engine": "redis",
-  "redis": {
-    "broker_address": "redis://:Riyan%402305@infrastructure-redis:6379/0"
+  "redis_engine": {
+    "shards": [
+      {
+        "addresses": ["infrastructure-redis:6379"],
+        "db": 0,
+        "password": "Riyan@2305"
+      }
+    ]
   },
   "allowed_origins": [
     "http://localhost:5173",
