@@ -88,7 +88,7 @@ Dokumentasi lengkap tentang seluruh infrastruktur Docker yang telah dikonfiguras
 ## 📁 File Structure
 
 ```
-docker-compose.yml              # Main Docker Compose configuration
+docker-compose.yml              # Main docker-compose configuration
 .env.example                    # Environment variables template
 .env                           # Generated (not in git)
 .dockerignore                  # Docker build ignore patterns
@@ -181,7 +181,7 @@ DNS_CONFIGURATION.md          # DNS & domain setup
 ### Step 1: Prerequisites
 
 ```bash
-# Install Docker & Docker Compose
+# Install Docker & docker-compose
 curl -fsSL https://get.docker.com | sh
 sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 chmod +x /usr/local/bin/docker-compose
@@ -370,10 +370,10 @@ keepalive_timeout 65
 
 ### Production (via Domain + Nginx)
 
-- MinIO Console: `https://storage.agcforge.com`
-- MinIO API: `https://api-storage.agcforge.com`
-- Centrifugo: `https://websocket.agcforge.com`
-- PgAdmin: `https://pgadmin.agcforge.com`
+- MinIO Console: `https://console-storage.infrastructures.help`
+- MinIO API: `https://api-storage.infrastructures.help`
+- Centrifugo: `https://websocket.infrastructures.help`
+- PgAdmin: `https://pgadmin.infrastructures.help`
 
 ---
 

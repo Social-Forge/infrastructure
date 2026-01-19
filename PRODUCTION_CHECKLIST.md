@@ -9,7 +9,7 @@ Checklist lengkap sebelum deploy ke production server Ubuntu.
 - [ ] Server Ubuntu tersedia dan accessible via SSH
 - [ ] Ubuntu OS updated: `sudo apt update && apt upgrade -y`
 - [ ] Docker installed: `curl -fsSL https://get.docker.com | sh`
-- [ ] Docker Compose installed: `sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose`
+- [ ] docker-compose installed: `sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose`
 - [ ] Disk space: Minimal 50GB untuk production data
 - [ ] Memory: Minimal 8GB RAM
 - [ ] CPU: Minimal 4 cores recommended

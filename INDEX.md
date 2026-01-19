@@ -212,7 +212,7 @@ See [QUICKSTART.md](QUICKSTART.md) → "Access Services" for full details
 ./monitor.sh        # Check health
 ```
 
-### Docker Compose
+### docker-compose
 
 ```bash
 docker-compose ps                    # List services

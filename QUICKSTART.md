@@ -65,16 +65,16 @@ docker-compose logs -f
 ### Add to /etc/hosts (Linux/Mac) atau C:\Windows\System32\drivers\etc\hosts (Windows)
 
 ```
-127.0.0.1   storage.agcforge.com
-127.0.0.1   api-storage.agcforge.com
-127.0.0.1   websocket.agcforge.com
-127.0.0.1   pgadmin.agcforge.com
+127.0.0.1   console-storage.infrastructures.help
+127.0.0.1   api-storage.infrastructures.help
+127.0.0.1   websocket.infrastructures.help
+127.0.0.1   pgadmin.infrastructures.help
 ```
 
 Then access via:
 
-- http://storage.agcforge.com:9001 (MinIO Console)
-- http://pgadmin.agcforge.com:5050 (PgAdmin)
+- http://console-storage.infrastructures.help:9001 (MinIO Console)
+- http://pgadmin.infrastructures.help:5050 (PgAdmin)
 
 ---
 

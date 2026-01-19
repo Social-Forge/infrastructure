@@ -9,6 +9,6 @@ sudo ./scripts/generate-ssl.sh socialforge.io
 
 ls -l ./docker/nginx/ssl/
 
-docker compose stop socialforge-certbot socialforge-certbot-init
+docker-compose stop socialforge-certbot socialforge-certbot-init
 
-docker compose --profile init-certs up --force-recreate --abort-on-container-exit
+docker-compose --profile init-certs up --force-recreate --abort-on-container-exit

@@ -100,8 +100,8 @@ REDIS_PASSWORD=$REDIS_PASS
 # MinIO
 MINIO_ACCESS_KEY=$MINIO_ACCESS
 MINIO_SECRET_KEY=$MINIO_SECRET
-MINIO_BROWSER_REDIRECT_URL=https://storage.agcforge.com
-MINIO_SERVER_URL=https://api-storage.agcforge.com
+MINIO_BROWSER_REDIRECT_URL=https://console-storage.infrastructures.help
+MINIO_SERVER_URL=https://api-storage.infrastructures.help
 
 # Centrifugo
 CENTRIFUGO_TOKEN_SECRET=$CENTRIFUGO_TOKEN

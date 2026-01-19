@@ -141,12 +141,12 @@ curl http://localhost
 
 Ubah domain berikut sesuai domain Anda di file konfigurasi Nginx:
 
-| Service       | Domain (Example)         |
-| ------------- | ------------------------ |
-| MinIO Console | storage.agcforge.com     |
-| MinIO API     | api-storage.agcforge.com |
-| Centrifugo    | websocket.agcforge.com   |
-| PgAdmin       | pgadmin.agcforge.com     |
+| Service       | Domain (Example)                     |
+| ------------- | ------------------------------------ |
+| MinIO Console | console-storage.infrastructures.help |
+| MinIO API     | api-storage.infrastructures.help     |
+| Centrifugo    | websocket.infrastructures.help       |
+| PgAdmin       | pgadmin.infrastructures.help         |
 
 ## 🔧 Konfigurasi Detail
 
@@ -215,8 +215,8 @@ Fitur yang diaktifkan:
 **Configuration:**
 
 - Ports: 9000 (API), 9001 (Console)
-- Browser redirect: https://storage.agcforge.com
-- API endpoint: https://api-storage.agcforge.com
+- Browser redirect: https://console-storage.infrastructures.help
+- API endpoint: https://api-storage.infrastructures.help
 
 **Access:**
 
@@ -374,7 +374,7 @@ docker stats
 
 ```bash
 # Check logs
-docker compose logs postgres
+docker-compose logs postgres
 
 # Test connection
 docker exec infrastructure-postgres \
@@ -393,7 +393,7 @@ docker exec infrastructure-redis \
   redis-cli -a $REDIS_PASSWORD ping
 
 # Check logs
-docker compose logs redis
+docker-compose logs redis
 ```
 
 ### Nginx proxy error

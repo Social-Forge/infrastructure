@@ -119,10 +119,10 @@ backup.sh                 ← Backup & restore
 
 ### Production (via Domain)
 
-- **MinIO Console:** `storage.agcforge.com`
-- **MinIO API:** `api-storage.agcforge.com`
-- **Centrifugo:** `websocket.agcforge.com`
-- **PgAdmin:** `pgadmin.agcforge.com`
+- **MinIO Console:** `console-storage.infrastructures.help`
+- **MinIO API:** `api-storage.infrastructures.help`
+- **Centrifugo:** `websocket.infrastructures.help`
+- **PgAdmin:** `pgadmin.infrastructures.help`
 
 (Update domains in Nginx config files)
 
