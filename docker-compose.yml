@@ -49,15 +49,16 @@ services:
     image: centrifugo/centrifugo:v5
     container_name: infrastructure-centrifugo
     restart: always
-    command: centrifugo --config=/centrifugo/config.json
+    entrypoint: /entrypoint.sh
     volumes:
       - ./docker/centrifugo/config.json:/centrifugo/config.json
+      - ./docker/centrifugo/entrypoint.sh:/entrypoint.sh
     ports:
       - "8000:8000"
     networks:
       - infrastructure-network
     environment:
-      CENTRIFUGO_TOKEN_HMAC_SECRET_KEY: ${CENTRIFUGO_TOKEN_SECRET}
+      CENTRIFUGO_TOKEN_SECRET: ${CENTRIFUGO_TOKEN_SECRET}
       CENTRIFUGO_API_KEY: ${CENTRIFUGO_API_KEY}
       CENTRIFUGO_ADMIN_PASSWORD: ${CENTRIFUGO_ADMIN_PASSWORD}
       CENTRIFUGO_ADMIN_SECRET: ${CENTRIFUGO_ADMIN_SECRET}
