@@ -1,8 +1,8 @@
-#!/bin/bash
+#!/bin/sh
 set -e
 
-# Create config from template
-CENTRIFUGO_CONFIG_PATH="/etc/centrifugo/config.json"
+# Use /tmp for config (writable directory)
+CENTRIFUGO_CONFIG_PATH="/tmp/config.json"
 
 # Check if template exists
 if [ ! -f "/centrifugo/config.json" ]; then
@@ -10,8 +10,8 @@ if [ ! -f "/centrifugo/config.json" ]; then
     exit 1
 fi
 
-# Replace environment variables in config
+# Replace environment variables in config using envsubst
 envsubst < /centrifugo/config.json > "$CENTRIFUGO_CONFIG_PATH"
 
-# Start Centrifugo
+# Start Centrifugo with the generated config
 exec centrifugo --config="$CENTRIFUGO_CONFIG_PATH"

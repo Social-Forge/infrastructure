@@ -1,15 +1,13 @@
 {
-  "v3_use_offset": true,
-  "token_hmac_secret_key": "${CENTRIFUGO_TOKEN_SECRET}",
-  "api_key": "${CENTRIFUGO_API_KEY}",
-  "admin_password": "${CENTRIFUGO_ADMIN_PASSWORD}",
-  "admin_secret": "${CENTRIFUGO_ADMIN_SECRET}",
+  "token_hmac_secret_key": "ZnnO6Vlp214SNjAhtMon3z36M6BF/1SYrokd+Eb+oqMy33nCSBjeSBtSVGcNc5H9raLv/ls5+E4qY8sGC+1jnw==",
+  "api_key": "DC5oHAYr1dC9d2re6gKtdzQd+gxWsbyWpomG0zMP9TwRefcTFYathoyhKiATnIJTMDjAcAdp2hboLL4Jq1TmAA==",
+  "admin_password": "YjwNLKcwSuEH5TqMHtzgzpsz/C6D6WDBdbwD9pGqeas=",
+  "admin_secret": "IS/r9LSupA0U1p6Yt1ShFqXSs4DQ8igsv4EL/doLBRTtZ152qgiecTGeY9EwXSBan8YER/t03lQ0p/nN0f7CWQ==",
   "admin": true,
   "admin_insecure": false,
   "engine": "redis",
   "redis": {
-    "address": "infrastructure-redis:6379",
-    "password": "${REDIS_PASSWORD}"
+    "broker_address": "redis://:Riyan%402305@infrastructure-redis:6379/0"
   },
   "allowed_origins": [
     "http://localhost:5173",
@@ -25,77 +23,52 @@
   "namespaces": [
     {
       "name": "chat",
-      "publish": true,
-      "subscribe_to_publish": true,
       "presence": true,
       "join_leave": true,
       "history_size": 100,
-      "history_ttl": "24h",
-      "recover": true
+      "history_ttl": "24h"
     },
     {
       "name": "notifications",
-      "publish": true,
-      "subscribe_to_publish": true,
       "history_size": 50,
       "history_ttl": "12h"
     },
     {
       "name": "presence",
-      "publish": true,
       "presence": true,
       "join_leave": true
     },
     {
       "name": "typing",
-      "publish": true,
-      "history_size": 0,
-      "force_recovery": false
+      "history_size": 0
     },
     {
       "name": "alerts",
-      "publish": true,
-      "subscribe_to_publish": false,
       "history_size": 100,
-      "history_ttl": "7d",
-      "recover": true
+      "history_ttl": "168h"
     },
     {
       "name": "broadcast",
-      "publish": true,
-      "subscribe_to_publish": false,
       "history_size": 50,
-      "history_ttl": "24h",
-      "recover": true
+      "history_ttl": "24h"
     },
     {
       "name": "announcements",
-      "publish": true,
-      "subscribe_to_publish": false,
       "history_size": 200,
-      "history_ttl": "30d",
-      "recover": true
+      "history_ttl": "720h"
     },
     {
       "name": "system_events",
-      "publish": true,
-      "subscribe_to_publish": false,
       "history_size": 500,
-      "history_ttl": "7d",
-      "recover": true
+      "history_ttl": "168h"
     },
     {
       "name": "user_status",
-      "publish": true,
-      "subscribe_to_publish": false,
       "presence": true,
-      "join_leave": true,
-      "history_size": 0,
-      "force_recovery": false
+      "join_leave": true
     }
   ],
-  "log_level": "info",
-  "log_file": "centrifugo.log",
+  "log_level": "debug",
   "health": true,
   "prometheus": true,
   "grpc_api": {

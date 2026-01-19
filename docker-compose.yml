@@ -49,20 +49,16 @@ services:
     image: centrifugo/centrifugo:v5
     container_name: infrastructure-centrifugo
     restart: always
-    entrypoint: /entrypoint.sh
+    command: centrifugo --config=/centrifugo/config.json
     volumes:
-      - ./docker/centrifugo/config.json:/centrifugo/config.json
-      - ./docker/centrifugo/entrypoint.sh:/entrypoint.sh
+      - ./docker/centrifugo/config.json:/centrifugo/config.json:ro
     ports:
       - "8000:8000"
     networks:
       - infrastructure-network
-    environment:
-      CENTRIFUGO_TOKEN_SECRET: ${CENTRIFUGO_TOKEN_SECRET}
-      CENTRIFUGO_API_KEY: ${CENTRIFUGO_API_KEY}
-      CENTRIFUGO_ADMIN_PASSWORD: ${CENTRIFUGO_ADMIN_PASSWORD}
-      CENTRIFUGO_ADMIN_SECRET: ${CENTRIFUGO_ADMIN_SECRET}
-      REDIS_PASSWORD: ${REDIS_PASSWORD}
+    depends_on:
+      redis:
+        condition: service_healthy
     healthcheck:
       test: ["CMD", "wget", "--spider", "-q", "http://localhost:8000/health"]
       interval: 10s
