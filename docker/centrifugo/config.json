@@ -6,15 +6,9 @@
   "admin": true,
   "admin_insecure": false,
   "engine": "redis",
-  "redis_engine": {
-    "shards": [
-      {
-        "addresses": ["infrastructure-redis:6379"],
-        "db": 0,
-        "password": "Riyan@2305"
-      }
-    ]
-  },
+  "redis_address": "infrastructure-redis:6379",
+  "redis_password": "wyZuK64Tg105+erzJ1n/sg2DeQ4a4BbVr9c3M0D7neo=",
+  "redis_db": 0,
   "allowed_origins": [
     "http://localhost:5173",
     "http://localhost:8080",
