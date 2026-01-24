@@ -19,6 +19,7 @@ services:
       - minio_data:/data
     networks:
       - infrastructure-network
+      - shared-network
 
   redis:
     image: redis:7-alpine
@@ -31,6 +32,7 @@ services:
       - redis_data:/data
     networks:
       - infrastructure-network
+      - shared-network
     healthcheck:
       test: ["CMD", "redis-cli", "--raw", "incr", "ping"]
       interval: 10s
@@ -56,6 +58,7 @@ services:
       - "8000:8000"
     networks:
       - infrastructure-network
+      - shared-network
     depends_on:
       redis:
         condition: service_healthy
@@ -94,6 +97,7 @@ services:
       - "${DB_PORT:-5432}:5432"
     networks:
       - infrastructure-network
+      - shared-network
     healthcheck:
       test:
         ["CMD-SHELL", "pg_isready -U ${DB_USER:-forge} -d ${DB_NAME:-forge_db}"]
@@ -134,6 +138,7 @@ services:
       - "${NGINX_HTTPS_PORT:-8443}:8443"
     networks:
       - infrastructure-network
+      - shared-network
     depends_on:
       - centrifugo
       - minio
@@ -144,6 +149,10 @@ services:
 networks:
   infrastructure-network:
     driver: bridge
+
+  shared-network:
+    driver: bridge
+    external: true
 
 volumes:
   postgres_data:
