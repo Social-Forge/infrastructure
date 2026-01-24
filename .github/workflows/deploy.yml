@@ -19,7 +19,7 @@ jobs:
         username: ${{ secrets.SERVER_USER }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
-          cd /path/to/your/project
+          cd /var/www/infrastructure
 
           # Reset dan pull dengan force
           git fetch origin
