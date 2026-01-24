@@ -70,6 +70,12 @@
       "name": "user_status",
       "presence": true,
       "join_leave": true
+    },
+    {
+      "name": "download",
+      "presence": true,
+      "history_size": 100,
+      "history_ttl": "1h"
     }
   ],
   "log_level": "debug",
