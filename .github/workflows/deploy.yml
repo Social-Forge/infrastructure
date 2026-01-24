@@ -30,5 +30,3 @@ jobs:
           # git pull origin main --rebase --autostash
 
           # Restart services jika perlu
-          docker-compose down
-          docker-compose up -d --build
