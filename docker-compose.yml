@@ -152,7 +152,7 @@ networks:
 
   shared-network:
     driver: bridge
-    external: true
+    name: shared-network
 
 volumes:
   postgres_data:
