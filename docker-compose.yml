@@ -125,6 +125,7 @@ services:
       - "127.0.0.1:5050:5050"
     networks:
       - infrastructure-network
+      - shared-network
     depends_on:
       - postgres
 
