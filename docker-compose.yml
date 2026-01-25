@@ -55,7 +55,7 @@ services:
     volumes:
       - ./docker/centrifugo/config.json:/centrifugo/config.json:ro
     ports:
-      - "8000:8000"
+      - "127.0.0.1:8000:8000"
     networks:
       - infrastructure-network
       - shared-network
@@ -121,30 +121,32 @@ services:
       PGADMIN_CONFIG_MASTER_PASSWORD_REQUIRED: "True"
     volumes:
       - pgadmin_data:/var/lib/pgadmin
+    ports:
+      - "127.0.0.1:5050:5050"
     networks:
       - infrastructure-network
     depends_on:
       - postgres
 
-  nginx:
-    image: nginx:alpine
-    container_name: infrastructure-nginx
-    restart: unless-stopped
-    volumes:
-      - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
-      - ./docker/nginx/conf.d:/etc/nginx/conf.d:ro
-    ports:
-      - "${NGINX_HTTP_PORT:-8080}:8080"
-      - "${NGINX_HTTPS_PORT:-8443}:8443"
-    networks:
-      - infrastructure-network
-      - shared-network
-    depends_on:
-      - centrifugo
-      - minio
-      - postgres
-      - redis
-      - pgadmin
+  # nginx:
+  #   image: nginx:alpine
+  #   container_name: infrastructure-nginx
+  #   restart: unless-stopped
+  #   volumes:
+  #     - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+  #     - ./docker/nginx/conf.d:/etc/nginx/conf.d:ro
+  #   ports:
+  #     - "${NGINX_HTTP_PORT:-8080}:8080"
+  #     - "${NGINX_HTTPS_PORT:-8443}:8443"
+  #   networks:
+  #     - infrastructure-network
+  #     - shared-network
+  #   depends_on:
+  #     - centrifugo
+  #     - minio
+  #     - postgres
+  #     - redis
+  #     - pgadmin
 
 networks:
   infrastructure-network:
