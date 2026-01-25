@@ -35,7 +35,13 @@
     {
       "name": "notifications",
       "history_size": 50,
-      "history_ttl": "12h"
+      "history_ttl": "12h",
+      "allow_subscribe_for_client": true,
+      "allow_publish_for_client": false,
+      "allow_history_for_client": true,
+      "allow_subscribe_for_anonymous": false,
+      "force_recovery": true,
+      "force_positioning": false
     },
     {
       "name": "presence",
@@ -49,12 +55,24 @@
     {
       "name": "alerts",
       "history_size": 100,
-      "history_ttl": "168h"
+      "history_ttl": "168h",
+      "allow_subscribe_for_client": true,
+      "allow_publish_for_client": false,
+      "allow_history_for_client": true,
+      "allow_subscribe_for_anonymous": false,
+      "force_recovery": true,
+      "force_positioning": false
     },
     {
       "name": "broadcast",
       "history_size": 50,
-      "history_ttl": "24h"
+      "history_ttl": "24h",
+      "allow_subscribe_for_client": true,
+      "allow_publish_for_client": false,
+      "allow_history_for_client": true,
+      "allow_subscribe_for_anonymous": false,
+      "force_recovery": true,
+      "force_positioning": false
     },
     {
       "name": "announcements",
@@ -64,7 +82,13 @@
     {
       "name": "system_events",
       "history_size": 500,
-      "history_ttl": "168h"
+      "history_ttl": "168h",
+      "allow_subscribe_for_client": true,
+      "allow_publish_for_client": false,
+      "allow_history_for_client": true,
+      "allow_subscribe_for_anonymous": false,
+      "force_recovery": true,
+      "force_positioning": false
     },
     {
       "name": "user_status",
@@ -75,9 +99,20 @@
       "name": "download",
       "presence": true,
       "history_size": 100,
-      "history_ttl": "1h"
+      "history_ttl": "1h",
+      "allow_subscribe_for_client": true,
+      "allow_publish_for_client": true,
+      "allow_history_for_client": true,
+      "allow_subscribe_for_anonymous": true,
+      "force_recovery": true,
+      "force_positioning": true
     }
   ],
+  "channel_prefix_private": true,
+  "channel_private_prefix": "$",
+  "channel_user_bound": true,
+  "user_subscribe_to_personal": true,
+
   "log_level": "debug",
   "health": true,
   "prometheus": true,
