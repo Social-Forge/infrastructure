@@ -129,6 +129,39 @@ services:
     depends_on:
       - postgres
 
+  3proxy:
+    build:
+      context: ./
+      dockerfile: docker/3proxy/Dockerfile
+    container_name: infrastructure-3proxy
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8080:3128"
+      - "127.0.0.1:1080:1080"
+      # - "0.0.0.0:8080:3128"   # HAPUS tanda # jika ingin akses dari luar
+      # - "0.0.0.0:1080:1080"   # HAPUS tanda # jika ingin akses dari luar
+    environment:
+      PROXY_LOGIN: ${PROXY_LOGIN:-admin}
+      PROXY_PASSWORD: ${PROXY_PASSWORD:-password}
+      PROXY_PORT: ${PROXY_PORT:-3128}
+      SOCKS_PORT: ${SOCKS_PORT:-1080}
+      PRIMARY_RESOLVER: ${PRIMARY_RESOLVER:-8.8.8.8}
+      SECONDARY_RESOLVER: ${SECONDARY_RESOLVER:-1.1.1.1}
+      MAX_CONNECTIONS: ${MAX_CONNECTIONS:-1024}
+    volumes:
+      - ./docker/3proxy/logs:/var/log/3proxy
+      - ./docker/3proxy/config:/etc/3proxy:ro
+    networks:
+      - infrastructure-network
+      - shared-network
+    cap_add:
+      - NET_ADMIN
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
   # nginx:
   #   image: nginx:alpine
   #   container_name: infrastructure-nginx
