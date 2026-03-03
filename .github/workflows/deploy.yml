@@ -2,31 +2,33 @@ name: Deploy to Ubuntu Server
 
 on:
   push:
-    branches: [ main, master ]
+    branches: [main, master]
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-    - name: Deploy to Server
-      uses: appleboy/ssh-action@v0.1.5
-      with:
-        host: ${{ secrets.SERVER_HOST }}
-        username: ${{ secrets.SERVER_USER }}
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
-        script: |
-          cd /var/www/infrastructure
+      - name: Deploy to Server
+        uses: appleboy/ssh-action@v0.1.5
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd /var/www/infrastructure
 
-          # Reset dan pull dengan force
-          git fetch origin
-          git reset --hard origin/main
+            # Reset dan pull dengan force
+            git fetch origin
+            git reset --hard origin/main
 
-          # Atau alternatif:
-          # git stash
-          # git pull origin main --rebase --autostash
+            chmod +x docker/3proxy/entrypoint.sh
 
-          # Restart services jika perlu
+            # Atau alternatif:
+            # git stash
+            # git pull origin main --rebase --autostash
+
+            # Restart services jika perlu
