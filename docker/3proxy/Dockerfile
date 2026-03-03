@@ -26,4 +26,4 @@ EXPOSE 3129 1080
 
 # Set entrypoint
 ENTRYPOINT ["/entrypoint.sh"]
-CMD ["3proxy", "/etc/3proxy/3proxy.cfg"]
+# CMD ["3proxy", "/etc/3proxy/3proxy.cfg"]
