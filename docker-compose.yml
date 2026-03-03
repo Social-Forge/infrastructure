@@ -150,7 +150,7 @@ services:
       MAX_CONNECTIONS: ${MAX_CONNECTIONS:-1024}
     volumes:
       - ./docker/3proxy/logs:/var/log/3proxy
-      - ./docker/3proxy/config:/etc/3proxy:ro
+      - ./docker/3proxy/config:/etc/3proxy
       - ./docker/3proxy/entrypoint.sh:/entrypoint.sh:ro
     networks:
       - infrastructure-network
