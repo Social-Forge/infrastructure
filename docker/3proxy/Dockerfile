@@ -15,7 +15,7 @@ RUN apk add --no-cache wget make gcc libc-dev && \
 RUN mkdir -p /etc/3proxy /var/log/3proxy
 
 # Copy konfigurasi
-COPY config/3proxy.cfg /etc/3proxy/3proxy.cfg
+COPY docker/3proxy/config/3proxy.cfg /etc/3proxy/3proxy.cfg
 
 # Expose ports
 EXPOSE 3129 1080
